@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title></title>
+      <link href="/2023/11/29/office%E6%BF%80%E6%B4%BB/"/>
+      <url>/2023/11/29/office%E6%BF%80%E6%B4%BB/</url>
+      
+        <content type="html"><![CDATA[<p>office激活</p><p><strong>Ohook 激活</strong></p><p>MAS:</p><p>Win+R输入powershell，Ctrl+Shift+Enter,</p><p>输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mc开服笔记(Jave版)</title>
+      <link href="/2023/11/21/mc%E5%BC%80%E6%9C%8D%E7%AC%94%E8%AE%B0(Jave%E7%89%88)/"/>
+      <url>/2023/11/21/mc%E5%BC%80%E6%9C%8D%E7%AC%94%E8%AE%B0(Jave%E7%89%88)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-搭建纯净服"><a href="#一-搭建纯净服" class="headerlink" title="一.搭建纯净服"></a>一.搭建纯净服</h2><p>1.下载对应版本号的服务端.</p><p>通过下面的网站可以下载mc各版本的服务端核心:</p><p><a href="https://mcversions.net/">MCVersions.net - Minecraft Versions Download List</a></p><p>2.将其放在一个空白文件夹中，新建一个文本文档，键入以下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx1024M -Xms1024M -jar minecraft_server.1.20.2.jar nogui</span><br></pre></td></tr></table></figure><p>保存后关闭，修改文件后缀，将<code>.txt</code>修改为<code>.bat</code>。</p><p>启动之后会自动生成一些文件，之后要在生成的<code>eula.txt</code>中将最后的<code>false</code>改为<code>true</code>。</p><hr><h1 id="二-搭建mod服"><a href="#二-搭建mod服" class="headerlink" title="二.搭建mod服"></a>二.搭建mod服</h1><p>使用Fabric&#x2F;Forge开服.</p><p>高版本的Fabric&#x2F;Forge开服较为方便,只需前往其官方下载核心，安装服务端，会自动下载相应的官方服务端核心并生成启动脚本。</p><p>Screen下载(CentOS):</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install screen</span><br></pre></td></tr></table></figure><p>Screen常用命令:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -R [name]</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -R [name] -X quit</span><br></pre></td></tr></table></figure><p>快捷键:Ctrl+a 再按d </p><hr><p>Linux 命令:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 filename</span><br></pre></td></tr></table></figure><p>  这个命令将文件的所有者设置为读、写、执行（7），所属组和其他用户设置为读、执行（5）。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 游戏 教程 Minecraft </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>社恐勇闯大一</title>
+      <link href="/2023/09/01/%E7%A4%BE%E6%81%90%E5%8B%87%E9%97%AF%E5%A4%A7%E4%B8%80/"/>
+      <url>/2023/09/01/%E7%A4%BE%E6%81%90%E5%8B%87%E9%97%AF%E5%A4%A7%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h1 id="西南科技大学"><a href="#西南科技大学" class="headerlink" title="西南科技大学"></a>西南科技大学</h1><p>​      <del>美好的</del>9.1，我怀着美好的<del>（摆烂的）</del>的愿景来到<strong>西南科技大学</strong>。</p><h2 id="2023-9-12"><a href="#2023-9-12" class="headerlink" title="2023&#x2F;9&#x2F;12"></a>2023&#x2F;9&#x2F;12</h2><p>虽说开学挺多天了，但室友之间没啥共同话题，也没说一起玩什么游戏，到现在室友直接还是不怎么熟络，都是各玩各的，但今天发生了一件实在离谱的事。且听我细细说来。</p><p>晚上班长来我们寝室发体检要用的单子，当时刚好有一位室友xxx在洗澡，于是班长第一次来没发到他。</p><p>一会儿后班长又来了，问xxx是不是我们寝室的，然后某室友A一边打游戏一边说：不是，我根本不知道xxx是谁。</p><p>话音铿锵有力，我和一个关系好的室友都懵了。啊？xxx不就是我们寝室的吗？</p><p>然后巧了，xxx室友回来了，然后一问。</p><p>……</p><h2 id="2023-10-16"><a href="#2023-10-16" class="headerlink" title="2023&#x2F;10&#x2F;16"></a>2023&#x2F;10&#x2F;16</h2><p>室友的PS5太爽了。</p><h2 id="2023-11-21"><a href="#2023-11-21" class="headerlink" title="2023&#x2F;11&#x2F;21"></a>2023&#x2F;11&#x2F;21</h2><p>持续摆烂ing。</p><h2 id="2023-12-1"><a href="#2023-12-1" class="headerlink" title="2023&#x2F;12&#x2F;1"></a>2023&#x2F;12&#x2F;1</h2><p>要考试了（悲，摆的太烂了</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《黑神话：悟空》获2023科隆游戏展最佳视觉特效</title>
+      <link href="/2023/08/27/%E3%80%8A%E9%BB%91%E7%A5%9E%E8%AF%9D%EF%BC%9A%E6%82%9F%E7%A9%BA%E3%80%8B%E8%8E%B72023%E7%A7%91%E9%9A%86%E6%B8%B8%E6%88%8F%E5%B1%95%E6%9C%80%E4%BD%B3%E8%A7%86%E8%A7%89%E7%89%B9%E6%95%88/"/>
+      <url>/2023/08/27/%E3%80%8A%E9%BB%91%E7%A5%9E%E8%AF%9D%EF%BC%9A%E6%82%9F%E7%A9%BA%E3%80%8B%E8%8E%B72023%E7%A7%91%E9%9A%86%E6%B8%B8%E6%88%8F%E5%B1%95%E6%9C%80%E4%BD%B3%E8%A7%86%E8%A7%89%E7%89%B9%E6%95%88/</url>
+      
+        <content type="html"><![CDATA[<p>  今年（2023年）科隆游戏展<strong>最佳视觉特效奖项</strong>共七款游戏提名，分别是《装甲核心6：境界天火》《黑神话：悟空》《REKA》《沙漠大冒险》《裂开了！裤先生》，其中<strong>《黑神话：悟空》</strong>获得该奖项！</p><p>  “中国的第一部动画长片诞生在1941年，它叫<strong>《铁扇公主》</strong>；</p><p>  “中国动画史上的巅峰是1961年的<strong>《大闹天宫》</strong>；</p><p>  ”中国收视率巅峰的影视剧是<strong>86版《西游记》</strong>；</p><p>  “<strong>99版《西游记》动画片</strong>从第八集开始由央视接受，采用全新技术，色彩鲜艳，放到现在依旧好看；</p><p>  ”2015年，在中国动漫低谷期打破沉寂的是<strong>《大圣归来》</strong>；</p><p>  “如今，这个中国从未触及的领域，同样由我们最爱的大圣来开头！新中国的文化史上，大圣为我们留下了浓墨重彩的一笔，这就是大圣，开天劈地，敢为人先，<strong>斗罢艰险又出发</strong>！”</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
