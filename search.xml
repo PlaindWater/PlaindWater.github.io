@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2023/11/29/office%E6%BF%80%E6%B4%BB/"/>
-      <url>/2023/11/29/office%E6%BF%80%E6%B4%BB/</url>
+      <title>office激活</title>
+      <link href="/2023/12/04/office%E6%BF%80%E6%B4%BB/"/>
+      <url>/2023/12/04/office%E6%BF%80%E6%B4%BB/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: office激活</span><br><span class="line">date: 2023-12-3 23:21:34</span><br><span class="line">tags: 教程 </span><br><span class="line">img: </span><br></pre></td></tr></table></figure><p><strong>Ohook 激活</strong></p><p>MAS:</p><p>Win+R输入powershell，Ctrl+Shift+Enter,</p><p>输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p><strong>Ohook 激活</strong></p><p>MAS:</p><p>Win+R输入powershell，Ctrl+Shift+Enter,</p><p>输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -47,25 +47,6 @@
         <tags>
             
             <tag> 生活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《黑神话：悟空》获2023科隆游戏展最佳视觉特效</title>
-      <link href="/2023/08/27/%E3%80%8A%E9%BB%91%E7%A5%9E%E8%AF%9D%EF%BC%9A%E6%82%9F%E7%A9%BA%E3%80%8B%E8%8E%B72023%E7%A7%91%E9%9A%86%E6%B8%B8%E6%88%8F%E5%B1%95%E6%9C%80%E4%BD%B3%E8%A7%86%E8%A7%89%E7%89%B9%E6%95%88/"/>
-      <url>/2023/08/27/%E3%80%8A%E9%BB%91%E7%A5%9E%E8%AF%9D%EF%BC%9A%E6%82%9F%E7%A9%BA%E3%80%8B%E8%8E%B72023%E7%A7%91%E9%9A%86%E6%B8%B8%E6%88%8F%E5%B1%95%E6%9C%80%E4%BD%B3%E8%A7%86%E8%A7%89%E7%89%B9%E6%95%88/</url>
-      
-        <content type="html"><![CDATA[<p>  今年（2023年）科隆游戏展<strong>最佳视觉特效奖项</strong>共七款游戏提名，分别是《装甲核心6：境界天火》《黑神话：悟空》《REKA》《沙漠大冒险》《裂开了！裤先生》，其中<strong>《黑神话：悟空》</strong>获得该奖项！</p><p>  “中国的第一部动画长片诞生在1941年，它叫<strong>《铁扇公主》</strong>；</p><p>  “中国动画史上的巅峰是1961年的<strong>《大闹天宫》</strong>；</p><p>  ”中国收视率巅峰的影视剧是<strong>86版《西游记》</strong>；</p><p>  “<strong>99版《西游记》动画片</strong>从第八集开始由央视接受，采用全新技术，色彩鲜艳，放到现在依旧好看；</p><p>  ”2015年，在中国动漫低谷期打破沉寂的是<strong>《大圣归来》</strong>；</p><p>  “如今，这个中国从未触及的领域，同样由我们最爱的大圣来开头！新中国的文化史上，大圣为我们留下了浓墨重彩的一笔，这就是大圣，开天劈地，敢为人先，<strong>斗罢艰险又出发</strong>！”</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 游戏 </tag>
             
         </tags>
       
