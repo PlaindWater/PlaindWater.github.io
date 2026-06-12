@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    <style>
+        /* ===== CSS Reset & Variables ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #2c2c2c;
+            --text-secondary: #666;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --tag-bg: #eff6ff;
+            --tag-text: #1e40af;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius: 10px;
+            --max-width: 720px;
+            --transition: 0.2s ease;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+                         "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.92);
+        }
+
+        .header-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .logo:hover { color: var(--accent); }
+
+        nav { display: flex; gap: 4px; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent);
+            background: var(--tag-bg);
+        }
+
+        /* ===== Main ===== */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        /* ===== Hero / About ===== */
+        .about-section {
+            text-align: center;
+            padding: 40px 0 48px;
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .about-section h1 { font-size: 1.8rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+        .about-section .subtitle { color: var(--text-secondary); font-size: 0.95rem; max-width: 420px; margin: 0 auto; }
+        .social-links { display: flex; gap: 16px; justify-content: center; margin-top: 20px; }
+        .social-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+        .social-links a:hover { color: var(--accent); }
+
+        /* ===== Article List ===== */
+        .article-list { display: flex; flex-direction: column; gap: 16px; }
+
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .article-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .article-card .meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .article-card .date::before { content: "📅 "; }
+        .article-card .tag {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .article-card h2 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text); line-height: 1.5; }
+        .article-card p { font-size: 0.9rem; color: var(--text-secondary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-card .read-more { display: inline-block; margin-top: 12px; color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+
+        /* ===== Article Detail ===== */
+        .article-detail { display: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .article-detail h1 { font-size: 1.8rem; margin-bottom: 12px; line-height: 1.4; letter-spacing: -0.02em; }
+        .article-detail .detail-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 32px; }
+
+        .article-detail .content { font-size: 1rem; line-height: 2; }
+        .article-detail .content p { margin-bottom: 1.2em; }
+        .article-detail .content h3 { margin: 1.8em 0 0.6em; font-size: 1.2rem; }
+        .article-detail .content ul { margin: 0.8em 0 1.2em 1.5em; }
+        .article-detail .content li { margin-bottom: 0.4em; }
+        .article-detail .content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 8px 20px;
+            margin: 1.2em 0;
+            background: var(--tag-bg);
+            border-radius: 0 6px 6px 0;
+            color: var(--text-secondary);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* ===== Empty State ===== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 600px) {
+            .header-inner { height: 48px; }
+            .logo { font-size: 1.1rem; }
+            nav a { font-size: 0.8rem; padding: 4px 10px; }
+            main { padding: 20px 16px 60px; }
+            .article-card { padding: 18px; }
+            .article-detail h1 { font-size: 1.4rem; }
+            .about-section { padding: 24px 0 32px; }
+            .about-section h1 { font-size: 1.5rem; }
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            header, nav, footer, .back-link { display: none; }
+            body { background: #fff; color: #000; }
+            main { max-width: 100%; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== Header ==================== -->
+    <header>
+        <div class="header-inner">
+            <a href="#home" class="logo" data-nav="home">✍️ 言蹊</a>
+            <nav>
+                <a href="#home" data-nav="home">文章</a>
+                <a href="#about" data-nav="about">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== Main Content ==================== -->
+    <main id="main"></main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+        <p>© 2026 言蹊 · 用文字记录思考</p>
+    </footer>
+
+    <!-- ==================== Scripts ==================== -->
+    <script>
+    (function() {
+        // ===== Article Data =====
+        const articles = [
+            {
+                id: 1,
+                title: "Blog 迁移记录",
+                date: "2024-08-17",
+                tag: "技术",
+                excerpt: "记录从旧电脑迁移 Hexo 博客到新电脑的完整过程，包括项目文件拷贝和 Git SSH 公钥配置。",
+                content: `
+                    <h3>1. 迁移本地 Hexo 文件夹</h3>
+                    <p>需要拷贝原电脑项目文件中的 <code>_config.yml</code>、<code>themes</code>、<code>source</code>、<code>scaffolds</code>、<code>package.json</code>、<code>.gitignore</code> 等文件到新电脑新建的文件夹中，或者建议直接将原文件夹整个打包拷贝到新电脑上。</p>
+
+                    <h3>2. 本地 Git 与 GitHub 公钥连接</h3>
+                    <p>安装好 Git 的目的在于，执行 <code>hexo d</code> 命令后，能将本地文档推送到 GitHub 上。需要建立本地 Git 与 GitHub 的连接，通过生成 SSH 公钥让 GitHub 认识本地电脑。</p>
+
+                    <p><strong>生成密钥</strong></p>
+                    <p>打开 Git Bash，输入以下命令：</p>
+                    <pre><code>git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱"
+ssh-keygen -t rsa -C "你的邮箱"</code></pre>
+
+                    <blockquote>用户名和邮箱自己填写即可，后面的命令一路 Enter。在 <code>C:\\Users\\用户名\\.ssh</code> 文件夹下生成的 <code>id_rsa.pub</code> 文件即为公钥。</blockquote>
+
+                    <p><strong>进入 GitHub，输入密钥</strong></p>
+                    <ul>
+                        <li>进入 GitHub 个人设置界面，找到 SSH and GPG keys 选项</li>
+                        <li>选择新建 SSH Key，将公钥内容粘贴进去，点击添加</li>
+                    </ul>
+                    <p>完成以上步骤后，本地 Git 就能与 GitHub 正常通信了。</p>`,
+            },
+            {
+                id: 2,
+                title: "Spicetify 使用笔记",
+                date: "2024-02-02",
+                tag: "技术",
+                excerpt: "Spicetify 是一款 Spotify 客户端美化与增强工具，本文记录了歌词显示和全屏播放模式的开启方法。",
+                content: `
+                    <h3>lyrics-plus — 歌词显示</h3>
+                    <p>Spicetify 的 lyrics-plus 插件支持网易云和 MusixMatch 歌词源，在终端执行以下命令即可开启：</p>
+                    <pre><code>spicetify config custom_apps lyrics-plus
+spicetify apply</code></pre>
+                    <p>开启后重启 Spotify，就能在播放界面看到同步歌词了。</p>
+
+                    <h3>fullAppDisplay — 全屏播放模式</h3>
+                    <p>Spotify 官方客户端并没有窗口全屏播放的模式。有了 Spicetify，在终端里启用 fullAppDisplay 插件就能实现：</p>
+                    <pre><code>spicetify config extensions fullAppDisplay.js
+spicetify apply</code></pre>
+                    <p>启用后，Spotify 播放界面会以全屏模式展示专辑封面和播放信息，视觉效果非常棒。</p>
+
+                    <blockquote>Spicetify 还有很多插件和主题可以探索，官方市场 <a href="https://github.com/spicetify/spicetify-marketplace" target="_blank">Spicetify Marketplace</a> 是发掘更多功能的好地方。</blockquote>`,
+            },
+            {
+                id: 3,
+                title: "MC 开服笔记",
+                date: "2024-01-19",
+                tag: "游戏",
+                excerpt: "从零开始搭建 Minecraft 服务器的完整记录：纯净服、Mod 服搭建，内网穿透以及云服务器部署。",
+                content: `
+                    <h3>一、搭建纯净服</h3>
+                    <p><strong>1. 下载服务端核心</strong></p>
+                    <p>通过 <a href="https://mcversions.net/" target="_blank">MCVersions.net</a> 可以下载 MC 各版本的服务端核心 jar 文件。</p>
+
+                    <p><strong>2. 创建启动脚本</strong></p>
+                    <p>将下载的 jar 文件放在一个空白文件夹中，新建文本文档，键入以下内容：</p>
+                    <pre><code>java -Xmx1024M -Xms1024M -jar minecraft_server.1.20.2.jar nogui</code></pre>
+                    <p>保存后将文件后缀从 <code>.txt</code> 改为 <code>.bat</code>。</p>
+
+                    <p><strong>3. 首次启动</strong></p>
+                    <p>双击 bat 文件启动后会自动生成配置文件。在生成的 <code>eula.txt</code> 中将最后的 <code>false</code> 改为 <code>true</code>，表明接受许可协议，然后重新启动即可。</p>
+
+                    <h3>二、搭建 Mod 服</h3>
+                    <p>使用 Fabric 或 Forge 开服。高版本的 Fabric/Forge 开服较为方便，只需前往其官网下载核心安装器，安装服务端后会自动下载相应的官方服务端核心并生成启动脚本。</p>
+
+                    <h3>三、内网穿透</h3>
+                    <p>使用 Sakura Frp 等内网穿透工具，让外网的小伙伴能够连接到你的服务器。</p>
+
+                    <h3>四、部署到云服务器</h3>
+                    <p>一般云服务器使用 Linux 系统，下面以 CentOS 为例：</p>
+                    <p><strong>Screen — SSH 断开后保持服务器运行</strong></p>
+                    <pre><code>yum install screen           # 安装 screen
+screen -ls                   # 查看已有会话
+screen -R [name]             # 新建会话
+screen -R [name] -X quit     # 删除会话</code></pre>
+                    <p>快捷键：<code>Ctrl+A</code> 再按 <code>d</code> 保存当前会话并回到主会话。</p>
+                    <p><strong>文件权限设置</strong></p>
+                    <pre><code>chmod 755 filename</code></pre>
+                    <p>该命令将文件所有者设为读、写、执行（7），所属组和其他用户设为读、执行（5）。部署到云服务器后需要修改脚本权限，否则可能无法执行。</p>
+
+                    <blockquote>搭建 MC 服务器最核心的三步：获取服务端 → 配置启动 → 网络可达。剩下的就是享受和好友一起玩的乐趣。</blockquote>`,
+            },
+            {
+                id: 4,
+                title: "Windows 激活相关",
+                date: "2024-01-19",
+                tag: "技术",
+                excerpt: "使用 Ohook 方式的 MAS 工具激活 Windows，一行命令即可完成。",
+                content: `
+                    <h3>Ohook 激活方式</h3>
+                    <p>MAS（Microsoft Activation Scripts）提供了便捷的 Windows 激活方案。使用 Ohook 方式可以在不影响系统文件的前提下完成激活。</p>
+
+                    <h3>操作步骤</h3>
+                    <ol>
+                        <li>按 <code>Win+R</code> 打开运行，输入 <code>powershell</code>，按 <code>Ctrl+Shift+Enter</code> 以管理员身份运行</li>
+                        <li>在 PowerShell 窗口中输入以下命令：</li>
+                    </ol>
+                    <pre><code>irm https://get.activated.win | iex</code></pre>
+                    <p>执行后会出现激活选项菜单，选择 Ohook 激活方式即可。</p>
+
+                    <blockquote>注意：使用激活工具前请确认当地法律法规。MAS 项目在 GitHub 上开源，可自行审查其源码。</blockquote>`,
+            },
+        ];
+
+        // ===== About Data =====
+        const aboutHTML = `
+            <div class="about-section">
+                <div class="avatar">📝</div>
+                <h1>你好，我是言蹊</h1>
+                <p class="subtitle">一个喜欢写代码和文字的开发者。<br>这里记录我的学习、思考和探索。</p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <span style="color:var(--text-secondary)">·</span>
+                    <a href="mailto:example@example.com">Email</a>
+                    <span style="color:var(--text-secondary)">·</span>
+                    <a href="#">RSS</a>
+                </div>
+            </div>
+
+            <div style="max-width:600px;margin:0 auto;">
+                <h2 style="font-size:1.15rem;margin-bottom:16px;">📬 关于这个博客</h2>
+                <p style="color:var(--text-secondary);margin-bottom:24px;">
+                    这个博客用纯 HTML、CSS 和 JavaScript 手写而成，没有使用任何框架或构建工具。
+                    所有文章数据直接存放在 JS 数组中，发布新文章只需在数组里 push 一个新对象。
+                    托管在静态文件服务上，加载速度极快，阅读体验干净清爽。
+                </p>
+
+                <h2 style="font-size:1.15rem;margin-bottom:16px;">🏷️ 文章标签</h2>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    ${[...new Set(articles.map(a => a.tag))].map(tag =>
+                        `<span class="tag" style="font-size:0.85rem;padding:4px 14px;">${tag}</span>`
+                    ).join('')}
+                </div>
+            </div>
+        `;
+
+        // ===== Router =====
+        const main = document.getElementById('main');
+        const navLinks = document.querySelectorAll('nav a');
+        const logo = document.querySelector('.logo');
+
+        function setActiveNav(hash) {
+            const current = hash.replace('#', '') || 'home';
+            navLinks.forEach(link => {
+                const nav = link.dataset.nav;
+                link.classList.toggle('active', nav === current || (current === 'article' && nav === 'home'));
+            });
+        }
+
+        function renderHome() {
+            setActiveNav('home');
+            const cards = articles.map(a => `
+                <article class="article-card" onclick="window.location.hash='article/${a.id}'">
+                    <div class="meta">
+                        <span class="date">${a.date}</span>
+                        <span class="tag">${a.tag}</span>
+                    </div>
+                    <h2>${a.title}</h2>
+                    <p>${a.excerpt}</p>
+                    <span class="read-more">阅读全文 →</span>
+                </article>
+            `).join('');
+
+            main.innerHTML = `
+                <div class="article-list">${cards}</div>
+            `;
+        }
+
+        function renderArticle(id) {
+            setActiveNav('article');
+            const article = articles.find(a => a.id === id);
+            if (!article) {
+                main.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><h2>文章未找到</h2><p>你访问的文章不存在或已被删除。</p></div>`;
+                return;
+            }
+
+            main.innerHTML = `
+                <div class="article-detail" style="display:block;">
+                    <div class="back-link" onclick="window.location.hash='home'">← 返回文章列表</div>
+                    <h1>${article.title}</h1>
+                    <div class="detail-meta">📅 ${article.date} &nbsp;·&nbsp; 🏷️ ${article.tag} &nbsp;·&nbsp; ⏱️ 约 ${Math.ceil(article.content.replace(/<[^>]*>/g, '').length / 500)} 分钟阅读</div>
+                    <div class="content">${article.content}</div>
+                    <div class="back-link" style="margin-top:40px;" onclick="window.location.hash='home'">← 返回文章列表</div>
+                </div>
+            `;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderAbout() {
+            setActiveNav('about');
+            main.innerHTML = aboutHTML;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function route() {
+            const hash = window.location.hash || '#home';
+
+            if (hash.startsWith('#article/')) {
+                const id = parseInt(hash.replace('#article/', ''));
+                renderArticle(id);
+            } else if (hash === '#about') {
+                renderAbout();
+            } else {
+                renderHome();
+            }
+        }
+
+        // ===== Events =====
+        window.addEventListener('hashchange', route);
+        window.addEventListener('DOMContentLoaded', route);
+
+        // Handle logo click
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.hash = 'home';
+        });
+    })();
+    </script>
+
+</body>
+</html>
