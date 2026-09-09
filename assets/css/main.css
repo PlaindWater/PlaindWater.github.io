@@ -694,13 +694,24 @@
   @media (min-width: 1120px) {
     .post {
       grid-template-columns: minmax(0, 1fr) 15rem;
+      grid-template-rows: auto auto 1fr auto;
       column-gap: 3.5rem;
       max-width: 66rem;
     }
 
+    .back {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .post-head {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
     .toc {
       grid-column: 2;
-      grid-row: 2 / span 2;
+      grid-row: 3;
       position: sticky;
       top: calc(var(--header-h) + 1.5rem);
       align-self: start;
@@ -709,11 +720,13 @@
 
     .prose {
       grid-column: 1;
-      grid-row: 2;
+      grid-row: 3;
+      min-width: 0;
     }
 
     .post-nav {
       grid-column: 1;
+      grid-row: 4;
     }
   }
 
