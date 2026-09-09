@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SummerN's Blog</title>
+    <link>https://plaindwater.github.io/</link>
+    <description>一个喜欢写代码和文字的开发者，记录学习、思考与探索。</description>
+    <language>zh-CN</language>
+    <atom:link href="https://plaindwater.github.io/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Spicetify 使用笔记</title>
+      <link>https://plaindwater.github.io/#/post/2</link>
+      <guid>https://plaindwater.github.io/#/post/2</guid>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 GMT</pubDate>
+      <description>Spicetify 是一款 Spotify 客户端美化与增强工具，本文记录了歌词显示和全屏播放模式的开启方法。</description>
+    </item>
+
+    <item>
+      <title>MC 开服笔记</title>
+      <link>https://plaindwater.github.io/#/post/3</link>
+      <guid>https://plaindwater.github.io/#/post/3</guid>
+      <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+      <description>从零开始搭建 Minecraft 服务器的完整记录：纯净服、Mod 服搭建，内网穿透以及云服务器部署。</description>
+    </item>
+
+    <item>
+      <title>Windows 激活相关</title>
+      <link>https://plaindwater.github.io/#/post/4</link>
+      <guid>https://plaindwater.github.io/#/post/4</guid>
+      <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+      <description>使用 Ohook 方式的 MAS 工具激活 Windows，一行命令即可完成。</description>
+    </item>
+  </channel>
+</rss>

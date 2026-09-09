@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "slug": "spicetify-notes",
+      "title": "Spicetify 使用笔记",
+      "date": "2024-02-02",
+      "tags": ["技术"],
+      "excerpt": "Spicetify 是一款 Spotify 客户端美化与增强工具，本文记录了歌词显示和全屏播放模式的开启方法。",
+      "file": "spicetify-notes.md"
+    },
+    {
+      "id": 3,
+      "slug": "minecraft-server",
+      "title": "MC 开服笔记",
+      "date": "2024-01-19",
+      "tags": ["游戏"],
+      "excerpt": "从零开始搭建 Minecraft 服务器的完整记录：纯净服、Mod 服搭建，内网穿透以及云服务器部署。",
+      "file": "minecraft-server.md"
+    },
+    {
+      "id": 4,
+      "slug": "windows-activation",
+      "title": "Windows 激活相关",
+      "date": "2024-01-19",
+      "tags": ["技术"],
+      "excerpt": "使用 Ohook 方式的 MAS 工具激活 Windows，一行命令即可完成。",
+      "file": "windows-activation.md"
+    }
+  ]
+}
